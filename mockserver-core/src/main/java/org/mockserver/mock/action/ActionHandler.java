@@ -251,7 +251,7 @@ public class ActionHandler {
     }
 
     private void returnNotFound(ResponseWriter responseWriter, HttpRequest request) {
-        HttpResponse response = notFoundResponse();
+        HttpResponse response = HttpResponse.response("No handler found for this endpoint");
         if (request.getHeaders().containsEntry("x-forwarded-by", "MockServer")) {
             response.withHeader("x-forwarded-by", "MockServer");
         } else {
